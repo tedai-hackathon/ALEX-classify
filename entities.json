@@ -67,6 +67,7 @@
             "mnemonic" : "wy_lp",
             "state" : "wy",
             "docs" : "https://sos.wyo.gov/Forms/Business/LP/LP-ArticlesOrganization.pdf",
+            "name" : "Limited Partnership",
             "statue" : "W.S. 17-14-201 through 17-14-1104",
             "description" : "A limited partnership consists of at least one general partner and at least one limited partner. A general partner(s) is responsible for running the business's day-to-day operations and is fully liable for the obligations and debts of the limited partnership. A limited partner(s) has minimal involvement in the business operation and is not liable for the obligations and debts of the limited partnership unless the limited partner(s) is also the general partner(s). The partnership agreement governs the rights and duties of the limited partnership.",
             "flags" : ["prt", "lbp", "ltp", "pag"]
@@ -75,6 +76,7 @@
             "mnemonic" : "wy_rllp",
             "state" : "wy",
             "docs" : "https://sos.wyo.gov/Forms/Business/RLLP/RLLP-StatementRegistration.pdf",
+            "name" : "Registered Limited Liability Partnership",
             "statue" : "Uniform Partnership Act (W.S. 17-21-1101 through 17-21-1107)",
             "description" : "A registered limited liability partnership (RLLP) is composed of general partners who normally would be fully liable for the business. Unlike a general partnership, an RLLP provides each of its individual partners protection against personal liability that may occur in situations where the general partner would otherwise be held responsible. The partnership agreement governs the rights and duties of the RLLP.",
             "flags" : ["prt", "ltp", "pag"]
