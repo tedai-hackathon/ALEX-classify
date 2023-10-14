@@ -127,5 +127,10 @@ class ClassifyEntity:
         # sort the entities by similarity to the input flags
         entity_flags_matrix = np.array(list(self._entity_vector_mapping.values()))
         self._entity_similarity_vector = np.dot(entity_flags_matrix, input_flag_vector)
-        sorted_entity_indexes = np.argsort(self._entity_similarity_vector)[::-1]
-        self._entities = [self._entities[i] for i in sorted_entity_indexes]
+        self._entities = sorted(
+            self._entities,
+            key=lambda entity: self._entity_similarity_vector[
+                list(self._entity_vector_mapping.keys()).index(entity.mnemonic)
+            ],
+            reverse=True,
+        )

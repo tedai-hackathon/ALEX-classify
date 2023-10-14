@@ -13,7 +13,7 @@
             "mnemonic" : "wy_sccs",
             "state" : "wy",
             "docs" : "https://sos.wyo.gov/Forms/Business/PROF/P-ArticlesIncorporation.pdf",
-            "name" : "Wyoming Statutoru Close Corporation Supplement",
+            "name" : "Wyoming Statutory Close Corporation Supplement",
             "statue" : "W.S. 17-17-101 through 17-17-151",
             "description" : "The Statutory Close Corporation Supplement may be elected by a Wyoming corporation with a limited number of shareholders. A corporation having thirty-five (35) or fewer shareholders may become a statutory close corporation. This business structure may appeal to family owned businesses or small business partnerships. Statutory close corporations are allowed to operate with fewer regulations and in a more informal manner that resembles a partnership. This supplement allows small corporations to forego some traditional corporate formalities like electing a board of directors or holding annual meetings.",
             "flags" : ["stk", "fam", "sbp", "inf"]
