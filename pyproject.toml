@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "ALEX-classify"
+name = "classify_entity"
 version = "0.0.0"
-description = "ALEX classify is a python library that provides tools to classify SMEs."
-authors = ["Yassin Kortam"]
+description = "Classify entity is a python library that provides tools to classify SMEs."
+authors = ["Yassin Kortam <yassinkortam@g.ucla.edu>"]
 license = "MIT"
 readme = "README.md"

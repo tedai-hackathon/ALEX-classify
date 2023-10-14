@@ -1,0 +1,85 @@
+{
+    "entities" : [
+        {
+            "mnemonic" : "wy_bca",
+            "state" : "wy",
+            "docs" : "https://sos.wyo.gov/Forms/Business/PROF/P-ArticlesIncorporation.pdf",
+            "name" : "Wyoming Business Corporation Act",
+            "statue" : "W.S. 17-16-101 through 17-16-1810",
+            "description" : "A profit corporation is most commonly formed for raising capital and limiting individual liability of its owners. Corporations may raise funds through the sale of stock and have a completely independent life separate from its shareholders. If a shareholder leaves the company or sells their shares, the corporation can continue doing business relatively undisturbed. Corporations operate with a board of directors and officers elected by the board. The management and regulation of affairs are prescribed in its bylaws.",
+            "flags" : ["stk", "bod"]
+        },
+        {
+            "mnemonic" : "wy_sccs",
+            "state" : "wy",
+            "docs" : "https://sos.wyo.gov/Forms/Business/PROF/P-ArticlesIncorporation.pdf",
+            "name" : "Wyoming Statutory Close Corporation Supplement",
+            "statue" : "W.S. 17-17-101 through 17-17-151",
+            "description" : "The Statutory Close Corporation Supplement may be elected by a Wyoming corporation with a limited number of shareholders. A corporation having thirty-five (35) or fewer shareholders may become a statutory close corporation. This business structure may appeal to family owned businesses or small business partnerships. Statutory close corporations are allowed to operate with fewer regulations and in a more informal manner that resembles a partnership. This supplement allows small corporations to forego some traditional corporate formalities like electing a board of directors or holding annual meetings.",
+            "flags" : ["stk", "fam", "sbp", "inf"]
+        },
+        {
+            "mnemonic" : "wy_nca",
+            "state" : "wy",
+            "docs" : "https://sos.wyo.gov/Forms/Business/NP/NP-ArticlesIncorporation.pdf",
+            "name" : "Wyoming Nonprofit Corporation Act",
+            "statue" : "W.S. 17-19-101 through 17-19-1807",
+            "description" : "A nonprofit corporation is an entity formed for religious, public benefit, or mutual benefit of its members and is not intended for profit. Nonprofit corporations can apply for federal tax-exempt status through the Internal Revenue Service 501(c)(3) tax code. Nonprofits operate with a board of directors and may or may not have members or classes of members. Bylaws are used to govern the affairs of the nonprofit corporation.",
+            "flags" : ["npr", "bod", "rlg", "pbf", "mbf"]
+        },
+        {
+            "mnemonic" : "wy_llca",
+            "state" : "wy",
+            "docs" : "https://sos.wyo.gov/Forms/Business/LLC/LLC-ArticlesOrganization.pdf",
+            "name" : "Wyoming Limited Liability Company Act",
+            "statue" : "W.S. 17-29-101 through 17-29-1105",
+            "description" : "In 1977 a piece of special legislation was passed creating a unique entity called the Wyoming Limited Liability Company. A limited liability company is a hybrid entity that blends the tax treatment benefits of a partnership with the protection from personal liability benefits of a profit corporation. They are either member-managed or manager-managed to which requirements of such rights and duties are provided for in an operating agreement. The operating agreement governs most aspects of the management of the LLC along with its activities and conduct.",
+            "flags" : ["mmb", "mam", "oag"]
+        },
+        {
+            "mnemonic" : "wy_sllc",
+            "state" : "wy",
+            "docs" : "https://sos.wyo.gov/Forms/Business/LLC/SeriesLLC-ArticlesofOrganization.pdf",
+            "name" : "Series Limited Liability Company",
+            "statue" : "W.S. 17-29-1101 through 17-29-1105",
+            "description" : "A form of an LLC known as a “series LLC” may be formed to designate one (1) or more series of members, managers, transferable interests or assets. Each series may have its own purpose, hold its own assets, and have separate rights, powers or duties. The operating agreement governs most aspects of the management of the LLC along with its activities and conduct.",
+            "flags" : ["mmb", "mam", "oag", "tia"]
+        },
+        {
+            "mnemonic" : "wy_clls",
+            "state" : "wy",
+            "docs" : "https://sos.wyo.gov/Forms/Business/LLC/LLC-ArticlesOrganization.pdf",
+            "name" : "Close Limited Liability Company Supplement",
+            "statue" : "W.S. 17-25-101 through 17-25-111",
+            "description" : "The Close Limited Liability Company Supplement may be elected for use by a limited liability company. Use of the supplement restricts the transferability of interests, resignation from the company, return of capital contributions and dissolution.",
+            "flags" : ["mmb", "mam", "oag", "rti", "rre", "rcc", "rds"]
+        },
+        {
+            "mnemonic" : "wy_daos",
+            "state" : "wy",
+            "docs" : "https://sos.wyo.gov/Forms/Business/LLC/DAOLLC-ArticlesOrganization.pdf",
+            "name" : "Wyoming Decentralized Autonomous Organization Supplement",
+            "statue" : "W.S. 17-31-101 through 17-31-116",
+            "description" : "Wyoming is the first state to pass legislation to recognize a Decentralized Autonomous Organization, often called a DAO. A DAO is a form of an LLC that uses a blockchain and has the ability to conduct management activities algorithmically using smart contracts. A DAO’s articles of organization and smart contracts govern the activities of the DAO and its rights and duties while an operating agreement may be used to supplement to the extent the articles or smart contract do not otherwise provide for a matter. While a DAO can to some extent conduct its management activities algorithmically, it also has members",
+            "flags" : ["mmb", "mam", "oag", "blc", "smc", "amt"]
+        },
+        {
+            "mnemonic" : "wy_lp",
+            "state" : "wy",
+            "docs" : "https://sos.wyo.gov/Forms/Business/LP/LP-ArticlesOrganization.pdf",
+            "name" : "Limited Partnership",
+            "statue" : "W.S. 17-14-201 through 17-14-1104",
+            "description" : "A limited partnership consists of at least one general partner and at least one limited partner. A general partner(s) is responsible for running the business's day-to-day operations and is fully liable for the obligations and debts of the limited partnership. A limited partner(s) has minimal involvement in the business operation and is not liable for the obligations and debts of the limited partnership unless the limited partner(s) is also the general partner(s). The partnership agreement governs the rights and duties of the limited partnership.",
+            "flags" : ["prt", "lbp", "ltp", "pag"]
+        },
+        {
+            "mnemonic" : "wy_rllp",
+            "state" : "wy",
+            "docs" : "https://sos.wyo.gov/Forms/Business/RLLP/RLLP-StatementRegistration.pdf",
+            "name" : "Registered Limited Liability Partnership",
+            "statue" : "Uniform Partnership Act (W.S. 17-21-1101 through 17-21-1107)",
+            "description" : "A registered limited liability partnership (RLLP) is composed of general partners who normally would be fully liable for the business. Unlike a general partnership, an RLLP provides each of its individual partners protection against personal liability that may occur in situations where the general partner would otherwise be held responsible. The partnership agreement governs the rights and duties of the RLLP.",
+            "flags" : ["prt", "ltp", "pag"]
+        }
+    ]
+}
