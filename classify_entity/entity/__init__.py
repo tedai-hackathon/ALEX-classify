@@ -61,3 +61,7 @@ class Entity:
     @property
     def flags(self) -> List[Flag]:
         return self._flags
+
+    @flags.setter
+    def flags(self, flags: List[Flag]):
+        self._flags = flags

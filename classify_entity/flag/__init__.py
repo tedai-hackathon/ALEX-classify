@@ -1,5 +1,6 @@
 """
 """
+from typing import List
 
 
 class Flag:
@@ -8,11 +9,17 @@ class Flag:
     _mnemonic: str
     _name: str
     _description: str
+    _question: str
+    _deps: List[str]
 
-    def __init__(self, mnemonic: str, name: str, description: str):
+    def __init__(
+        self, mnemonic: str, name: str, description: str, question: str, deps: List[str]
+    ):
         self._mnemonic = mnemonic
         self._name = name
         self._description = description
+        self._question = question
+        self._deps = deps
 
     @property
     def mnemonic(self) -> str:
