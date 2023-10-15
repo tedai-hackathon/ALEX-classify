@@ -1,0 +1,172 @@
+{
+    "flags" : [
+        {
+            "name" : "stock",
+            "mnemonic" : "stk",
+            "description" : "Represents ownership in a corporation and constitutes a claim on a part of the corporation's assets and earnings.",
+            "question" : "Do you want your company to issue stock?",
+            "deps" : []
+        },
+        {
+            "name" : "board",
+            "mnemonic" : "bod",
+            "description" : "Refers to a group of individuals who oversee the activities of a company or organization.",
+            "question" : "Do you want your company to have a board?",
+            "deps" : []
+        },
+        {
+            "name" : "family",
+            "mnemonic" : "fam",
+            "description" : "Pertains to entities or assets owned, controlled, or influenced by members of a single family.",
+            "question" : "Is your company a family business?",
+            "deps" : []
+        },
+        {
+            "name" : "small business partnership",
+            "mnemonic" : "sbp",
+            "description" : "A business structure where two or more individuals manage and operate a business in accordance with the terms and objectives set in the partnership agreement.",
+            "question" : "Will your company operate as a small business partnership?",
+            "deps" : []
+        },
+        {
+            "name" : "informal",
+            "mnemonic" : "inf",
+            "description" : "Entities or arrangements not bound by formal rules, often functioning based on mutual understanding or unwritten agreements.",
+            "question" : "Do you prefer an informal setup without strict rules or formalities?",
+            "deps" : []
+        },
+        {
+            "name" : "non-profit",
+            "mnemonic" : "npr",
+            "description" : "An organization that operates for purposes other than generating profit, often serving social, educational, or charitable objectives.",
+            "question" : "Is your organization intended to operate without profit motives?",
+            "deps" : []
+        },
+        {
+            "name" : "religious",
+            "mnemonic" : "rlg",
+            "description" : "Organizations formed based on faith or religious values, such as churches or other places of worship.",
+            "question" : "Is your organization primarily based on religious or faith values?",
+            "deps" : ["npr"]
+        },
+        {
+            "name" : "public-benefit",
+            "mnemonic" : "pbf",
+            "description" : "Organizations that contribute to the well-being of the general public, encompassing charities, arts institutions, and educational entities.",
+            "question" : "Is your organization aimed at contributing to the well-being of the general public?",
+            "deps" : ["npr"]
+        },
+        {
+            "name" : "mutual-benefit",
+            "mnemonic" : "mbf",
+            "description" : "Organizations created to provide services or benefits to a specific group of members, including homeowners' associations and professional clubs.",
+            "question" : "Will your organization provide services or benefits exclusively to a specific group of members?",
+            "deps" : ["npr"]
+        },
+        {
+            "name" : "member-managed",
+            "mnemonic" : "mmb",
+            "description" : "A type of management where all members participate in business decisions and operations.",
+            "question" : "Will all members of your organization participate in business decisions and operations?",
+            "deps" : []
+        },
+        {
+            "name" : "manager-managed",
+            "mnemonic" : "mam",
+            "description" : "A type of management where designated managers, not necessarily members, handle the decision-making and operations.",
+            "question" : "Will your organization have designated managers handling the decision-making and operations?",
+            "deps" : []
+        },
+        {
+            "name" : "operating-agreement",
+            "mnemonic" : "oag",
+            "description" : "A document that outlines the internal operations of an organization, detailing member roles, responsibilities, and procedural guidelines.",
+            "question" : "Do you plan to have an operating agreement outlining the roles, responsibilities, and procedural guidelines?",
+            "deps" : []
+        },
+        {
+            "name" : "transferable-interests-assets",
+            "mnemonic" : "tia",
+            "description" : "Pertains to assets or interests within an entity that can be transferred or sold to another party.",
+            "question" : "Do you want the assets or interests within your entity to be transferable?",
+            "deps" : []
+        },
+        {
+            "name" : "restrict-transferable-interests-assets",
+            "mnemonic" : "rti",
+            "description" : "Refers to limitations or conditions on the transfer or sale of assets or interests within an entity.",
+            "question" : "Do you want limitations on the transfer or sale of assets or interests within your entity?",
+            "deps" : []
+        },
+        {
+            "name" : "restrict-resignation",
+            "mnemonic" : "rre",
+            "description" : "Policies or terms that limit or dictate the conditions under which a member or partner can resign from an entity.",
+            "question" : "Will there be specific conditions under which a member or partner can resign?",
+            "deps" : []
+        },
+        {
+            "name" : "restrict-return-capital-contributions",
+            "mnemonic" : "rrc",
+            "description" : "Terms that limit or dictate the conditions under which capital contributions can be returned to members or partners.",
+            "question" : "Will there be conditions dictating when capital contributions can be returned to members or partners?",
+            "deps" : []
+        },
+        {
+            "name" : "restrict-dissolution",
+            "mnemonic" : "rds",
+            "description" : "Conditions or terms that limit the circumstances under which an entity can be dissolved or terminated.",
+            "question" : "Do you want to set certain conditions for when the organization can be dissolved or terminated?",
+            "deps" : []
+        },
+        {
+            "name" : "blockchain",
+            "mnemonic" : "bch",
+            "description" : "A digital ledger in which transactions are recorded chronologically and publicly, ensuring transparency and security.",
+            "question" : "Do you plan to use blockchain technology for your organization's transactions?",
+            "deps" : []
+        },
+        {
+            "name" : "smart-contract",
+            "mnemonic" : "smc",
+            "description" : "A self-executing contract with terms directly written into lines of code, typically on a blockchain.",
+            "question" : "Are you considering the use of self-executing smart contracts in your organization?",
+            "deps" : []
+        },
+        {
+            "name" : "automated-management",
+            "mnemonic" : "amt",
+            "description" : "A management system or process that uses technology and algorithms to make decisions without human intervention.",
+            "question" : "Do you want to use automated systems or algorithms for management without human intervention?",
+            "deps" : []
+        },
+        {
+            "name" : "partnership",
+            "mnemonic" : "prt",
+            "description" : "A business arrangement where two or more individuals share ownership, responsibilities, and profits or losses.",
+            "question" : "Is your business intended to be a partnership where responsibilities and profits or losses are shared?",
+            "deps" : []
+        },
+        {
+            "name" : "limited-partner",
+            "mnemonic" : "ltp",
+            "description" : "A partner whose liability is limited to their investment and who typically does not participate in day-to-day management.",
+            "question" : "Will there be partners who only contribute financially and have limited liability?",
+            "deps" : []
+        },
+        {
+            "name" : "liable-partner",
+            "mnemonic" : "lbp",
+            "description" : "A partner who has unlimited liability for the debts and obligations of the partnership.",
+            "question" : "Will any partners take on unlimited liability for debts and obligations of the partnership?",
+            "deps" : []
+        },
+        {
+            "name" : "partnership-agreement",
+            "mnemonic" : "pag",
+            "description" : "A written agreement among partners detailing the terms, conditions, and operational procedures of the partnership.",
+            "question" : "Do you intend to draft a written partnership agreement detailing the terms and operational procedures?",
+            "deps" : []
+        }
+    ]
+}
