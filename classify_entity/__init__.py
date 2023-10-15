@@ -58,6 +58,8 @@ class ClassifyEntity:
                                 raw_flag["mnemonic"],
                                 raw_flag["name"],
                                 raw_flag["description"],
+                                raw_flag["question"],
+                                raw_flag["deps"],
                             )
                         )
             self._entities.append(
@@ -74,9 +76,18 @@ class ClassifyEntity:
 
         for raw_flag in raw_flags["flags"]:
             self._flags.append(
-                Flag(raw_flag["mnemonic"], raw_flag["name"], raw_flag["description"])
+                Flag(
+                    raw_flag["mnemonic"],
+                    raw_flag["name"],
+                    raw_flag["description"],
+                    raw_flag["question"],
+                    raw_flag["deps"],
+                )
             )
 
+        self._update_flags()
+
+    def _update_flags(self):
         for i, flag in enumerate(self._flags):
             self._flag_index_mapping[flag.mnemonic] = i
 
@@ -134,3 +145,11 @@ class ClassifyEntity:
             ],
             reverse=True,
         )
+
+    @flags.setter
+    def flags(self, value: List[Flag]):
+        self._flags = value
+        # remove all flags from entities that are not in the new list of flags
+        for entity in self._entities:
+            entity.flags = [flag for flag in entity.flags if flag in self._flags]
+        self._update_flags()
