@@ -2,9 +2,10 @@
 """
 import json
 import numpy as np
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from .entity import Entity
 from .flag import Flag
+from .form import Form
 from sklearn.metrics.pairwise import cosine_similarity
 
 
@@ -27,6 +28,7 @@ class ClassifyEntity:
         to input flags.
     """
 
+    _docs_dir: str
     _entities: List[Entity] = []
     _flags: List[Flag] = []
     _flag_index_mapping: Dict[str, int] = {}
@@ -36,12 +38,14 @@ class ClassifyEntity:
     _input_flags: List[str] = []
     _entity_similarities: Dict[str, float] = {}
 
-    def __init__(self, entities_json_path: str, flags_json_path: str):
+    def __init__(self, entities_json_path: str, flags_json_path: str, docs_dir: str):
         """
         Args:
             entities_json_path (str): Path to the entities JSON file.
             flags_json_path (str): Path to the flags JSON file.
         """
+        self._docs_dir = docs_dir
+
         with open(entities_json_path, "r") as entities_json_file:
             raw_entities = json.load(entities_json_file)
 
@@ -150,6 +154,12 @@ class ClassifyEntity:
             self._entity_similarities[entity.mnemonic] for entity in self._entities
         ]
         return np.array(similarities)
+
+    @property
+    def top(self) -> Tuple[Entity, Form]:
+        return self._entities[0], Form(
+            url=self._entities[0].docs, docs_dir=self._docs_dir
+        )
 
     @input_flags.setter
     def input_flags(self, value: List[str]):
