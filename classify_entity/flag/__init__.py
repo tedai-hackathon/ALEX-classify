@@ -30,5 +30,9 @@ class Flag:
         return self._name
 
     @property
+    def question(self) -> str:
+        return self._question
+
+    @property
     def description(self) -> str:
         return self._description
