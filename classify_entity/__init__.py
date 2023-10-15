@@ -150,7 +150,7 @@ class ClassifyEntity:
     @property
     def similarities(self) -> np.ndarray:
         similarities = [
-            self._entity_similarities[entity.mnemonic] for entity in self._entities
+            self._entity_similarities.get(entity.mnemonic, 0) for entity in self._entities
         ]
         return np.array(similarities)
 
