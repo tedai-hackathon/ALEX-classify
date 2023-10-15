@@ -2,10 +2,9 @@
 """
 import json
 import numpy as np
-from typing import List, Dict, Tuple
+from typing import List, Dict
 from .entity import Entity
 from .flag import Flag
-from .form import Form
 from sklearn.metrics.pairwise import cosine_similarity
 
 
@@ -156,10 +155,8 @@ class ClassifyEntity:
         return np.array(similarities)
 
     @property
-    def top(self) -> Tuple[Entity, Form]:
-        return self._entities[0], Form(
-            url=self._entities[0].docs, docs_dir=self._docs_dir
-        )
+    def top(self) -> Entity:
+        return self._entities[0]
 
     @input_flags.setter
     def input_flags(self, value: List[str]):
