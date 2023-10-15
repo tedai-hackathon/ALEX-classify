@@ -34,5 +34,9 @@ class Flag:
         return self._question
 
     @property
+    def deps(self) -> List[str]:
+        return self._deps
+
+    @property
     def description(self) -> str:
         return self._description
