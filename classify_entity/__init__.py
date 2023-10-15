@@ -5,6 +5,7 @@ import numpy as np
 from typing import List, Dict
 from .entity import Entity
 from .flag import Flag
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 class ClassifyEntity:
@@ -33,7 +34,7 @@ class ClassifyEntity:
     _flag_variance_matrix: np.ndarray = np.array([])
     _sorted_flag_indexes: List[int] = []
     _input_flags: List[str] = []
-    _entity_similarity_vector: np.ndarray = np.array([])
+    _entity_similarities: Dict[str, float] = {}
 
     def __init__(self, entities_json_path: str, flags_json_path: str):
         """
@@ -85,26 +86,51 @@ class ClassifyEntity:
                 )
             )
 
-        self._update_flags()
+        # order the flags by variance
+        # optimal order to minimize the number of questions asked
+        self._sort_flags()
 
-    def _update_flags(self):
-        for i, flag in enumerate(self._flags):
-            self._flag_index_mapping[flag.mnemonic] = i
+    def _sort_flags(self):
+        # Create an index mapping for flags based on their mnemonics.
+        self._flag_index_mapping = {
+            flag.mnemonic: i for i, flag in enumerate(self._flags)
+        }
 
-        for i, entity in enumerate(self._entities):
-            self._entity_vector_mapping[entity.mnemonic] = [0] * len(self._flags)
+        # Convert entities' flags into binary vectors.
+        for entity in self._entities:
+            entity_vector = [0] * len(self._flags)
             for flag in entity.flags:
-                self._entity_vector_mapping[entity.mnemonic][
-                    self._flag_index_mapping[flag.mnemonic]
-                ] = 1
+                index = self._flag_index_mapping[flag.mnemonic]
+                entity_vector[index] = 1
+            self._entity_vector_mapping[entity.mnemonic] = entity_vector
 
-        # find the ideal order of flags
+        # Compute the variance for each flag across entities.
         entity_flags_matrix = np.array(list(self._entity_vector_mapping.values()))
         self._flag_variance_matrix = np.var(entity_flags_matrix, axis=0)
-        self._sorted_flag_indexes = np.argsort(self._flag_variance_matrix)[::-1]
 
-        # sort the flags
+        # Sort the flags based on their variance.
+        self._sorted_flag_indexes = np.argsort(self._flag_variance_matrix)[::-1]
         self._flags = [self._flags[i] for i in self._sorted_flag_indexes]
+
+    def sort(self):
+        # encode the input flags
+        input_flag_vector = np.zeros(len(self._flags))
+        for flag in self._input_flags:
+            flag_index = self._flag_index_mapping[flag]
+            input_flag_vector[flag_index] = 1
+
+        # compute the similarity for each entity
+        entity_similarities = {}
+        for entity, vector in self._entity_vector_mapping.items():
+            similarity = cosine_similarity([input_flag_vector], [vector])[0][0]
+            entity_similarities[entity] = similarity
+
+        self._entity_similarities = entity_similarities
+
+        # sort the entities based on computed similarities
+        self._entities.sort(
+            key=lambda entity: entity_similarities[entity.mnemonic], reverse=True
+        )
 
     @property
     def flags(self) -> List[Flag]:
@@ -119,37 +145,19 @@ class ClassifyEntity:
         return self._input_flags
 
     @property
-    def entity_similarity(self) -> np.ndarray:
-        return self._entity_similarity_vector
+    def similarities(self) -> np.ndarray:
+        similarities = [
+            self._entity_similarities[entity.mnemonic] for entity in self._entities
+        ]
+        return np.array(similarities)
 
     @input_flags.setter
     def input_flags(self, value: List[str]):
+        available_flags = set([flag.mnemonic for flag in self._flags])
+        extra_flags = set(value) - available_flags
+        if extra_flags:
+            raise ValueError(
+                f"Flags {extra_flags} are not available in the current list of flags."
+            )
         self._input_flags = value
-
-        # encode the input flags
-        input_flag_indexes = [
-            self._flag_index_mapping[flag] for flag in self._input_flags
-        ]
-        input_flag_vector = [0] * len(self._flags)
-        for flag_index in input_flag_indexes:
-            input_flag_vector[flag_index] = 1
-        input_flag_vector = np.array(input_flag_vector)
-
-        # sort the entities by similarity to the input flags
-        entity_flags_matrix = np.array(list(self._entity_vector_mapping.values()))
-        self._entity_similarity_vector = np.dot(entity_flags_matrix, input_flag_vector)
-        self._entities = sorted(
-            self._entities,
-            key=lambda entity: self._entity_similarity_vector[
-                list(self._entity_vector_mapping.keys()).index(entity.mnemonic)
-            ],
-            reverse=True,
-        )
-
-    @flags.setter
-    def flags(self, value: List[Flag]):
-        self._flags = value
-        # remove all flags from entities that are not in the new list of flags
-        for entity in self._entities:
-            entity.flags = [flag for flag in entity.flags if flag in self._flags]
-        self._update_flags()
+        self.sort()
